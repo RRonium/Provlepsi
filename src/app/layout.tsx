@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 // Applies the saved theme before first paint so there is no flash.
 const themeScript = `try{var s=JSON.parse(localStorage.getItem("provlepsi-settings")||"{}");document.documentElement.dataset.theme=(s.state&&s.state.theme)||"dark"}catch(e){document.documentElement.dataset.theme="dark"}`;
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       <head>
