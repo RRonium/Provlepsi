@@ -3,7 +3,7 @@ import * as Comlink from "comlink";
 import type { PyodideApi } from "./pyodide.worker";
 
 export const PYODIDE_URL = process.env.NEXT_PUBLIC_PYODIDE_URL ?? "https://cdn.jsdelivr.net/pyodide/v314.0.8/full/";
-export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+export const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/+$/, "");
 
 export type EngineKind = "pyodide" | "local";
 
